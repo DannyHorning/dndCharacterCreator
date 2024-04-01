@@ -1,15 +1,14 @@
 "use client";
 
 import {useState, useEffect} from "react";
+import Markdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
 
 export default function BasicRules({ruleUrl}) {
     const [ruleData, setRuleData] = useState('Ability Checks');
 
     useEffect(() => {
         fetchDndBasicRules();
-        
-        console.log(ruleUrl);
-        console.log(ruleData);
     }, [ruleUrl]);
 
 
@@ -22,9 +21,10 @@ export default function BasicRules({ruleUrl}) {
             console.error('Error in fetching data. ', error);
         }
     };
+
     return (
-        <div className='flex flex-col justify-center items-center'>
-        <p>{ruleData.desc}</p>
+        <div className="flex justify-center items-center flex-col ml-20 mr-20">
+        <Markdown remarkPlugins={[remarkGfm]}>{ruleData.desc}</Markdown>
         </div>
     );
     }
