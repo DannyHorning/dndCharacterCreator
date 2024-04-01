@@ -1,12 +1,11 @@
-"use client"
+'use client';
 
-import {useState, useEffect} from "react";
-
-
-
+import BasicRules from "./basic-rules";
+import { useState, useEffect } from "react";
 
 export default function RulesList() {
     const [rules, setRules] = useState([]);
+    const [selectedRule, setSelectedRule] = useState(null);
 
     const fetchDndBasicRulesList = async () => {
         try {
@@ -22,17 +21,25 @@ export default function RulesList() {
         fetchDndBasicRulesList();
     }, []);
 
+    const handleRuleChange = (event) => {
+        setSelectedRule(event.target.value);
+    };
+
     return (
         <div className='flex flex-col justify-center items-center'>
             <label>
                 <h2 className='font-bold'>Basic Rules</h2>
-                <select>
+                <select onChange={handleRuleChange}>
+                    <option value="">Select a rule</option>
                     {rules.map((rule, index) => (
-                    <option key={index} value={rule}>{rule.name}
-                    </option>
+                        <option key={index} value={rule.url}>
+                            {rule.name}
+                        </option>
                     ))}
                 </select>
             </label>
+            {selectedRule && <BasicRules ruleUrl={selectedRule} />}
         </div>
     );
 }
+
