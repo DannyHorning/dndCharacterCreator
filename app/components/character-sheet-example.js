@@ -13,8 +13,8 @@ export default function CharacterSheetExample() {
     <div className='mr-20 ml-20'>
         <h2 className='font-bold'>Character Sheet Example</h2>
         <p>
-            Let's take a look at an already created character (we will go into the specifics of making a character later). So far, we are only concerned about what a character sheet might
-            look like, and how the information is related to each other. Below is an example of a character sheet for a character named "Grakthar Bonecrusher". This character is a level 1 Half-Orc Barbarian. The character sheet includes information such as the character
+            Let us take a look at an already created character (we will go into the specifics of making a character later). So far, we are only concerned about what a character sheet might
+            look like, and how the information is related to each other. Below is an example of a character sheet for a character named Grakthar Bonecrusher. This character is a level 1 Half-Orc Barbarian. The character sheet includes information such as the character
             ability scores, skills, equipment, and other important information. This character sheet is based on the character sheet provided in the Basic Rules for Dungeons and Dragons 5th Edition.
         </p>
         <div className='flex flex-wrap justify-center'>
