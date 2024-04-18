@@ -327,7 +327,7 @@ export default function CharacterSheetExample() {
             <ul>
                 <li>Great Axe</li>
                 <li>2 Handaxes</li>
-                <li>Explorer's Pack</li>
+                <li>{`Explorer's Pack`}</li>
                 <li>Javelin (4)</li>
             </ul>
         </div>
