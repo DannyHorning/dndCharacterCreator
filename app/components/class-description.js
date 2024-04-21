@@ -48,31 +48,31 @@ export default function ClassDescription({classUrl}) {
             <h2>{classDescription.name}</h2>
             <p>Hit die: {classDescription.hit_die}</p>
             <p>Proficiencies: </p>
-            <p>{classDescription.proficiency_choices.map((choices, index) => (
+            <ul>{classDescription.proficiency_choices.map((choices) => (
                 <ul>
                 <li key={index}>{choices.desc}</li>
-                <li>{classDescription.proficiencies.map((proficiency, index) => 
+                <li>{classDescription.proficiencies.map((proficiency) => 
                 <ul>
-                    <li key={index}>{proficiency.name}</li>
+                    <li>{proficiency.name}</li>
                 </ul>)}</li>
                 </ul>
-            ))}</p>
+            ))}</ul>
             <p>Starting Equipment: </p>
             <ul>
-                {classDescription.starting_equipment.map((equipment, index) => (
-                    <li key={index}>{equipment.equipment.name}</li>
+                {classDescription.starting_equipment.map((equipment) => (
+                    <li>{equipment.equipment.name}</li>
                 ))}
-                {classDescription.starting_equipment_options.map((options, index) => (
-                    <li key={index}>{options.desc}</li>
+                {classDescription.starting_equipment_options.map((options) => (
+                    <li>{options.desc}</li>
                 ))}
             </ul>
             <p>Features:
             </p>
             <ul>
-                {classLevels.map((level, index) => (
+                {classLevels.map((level) => (
                     <ul>
-                    <li key={index}>Level {level.level}</li>
-                    <li key={index}>{level.features.map((feature, index) => (
+                    <li>Level {level.level}</li>
+                    <li>{level.features.map((feature, index) => (
                         <ul>
                             <li key={index}>{feature.name}</li>
                         </ul>
