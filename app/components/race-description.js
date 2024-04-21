@@ -1,6 +1,5 @@
 "use client";
-import {useState, useEffect,
-} from 'react';
+import {useState, useEffect} from 'react';
 
 
 export default function RaceDescription({raceUrl}) {
@@ -19,7 +18,7 @@ export default function RaceDescription({raceUrl}) {
             console.error('Error in fetching data. ', error);
         }
     }
-    
+
     useEffect(() => {
         fetchRaceDescription();
     }, [raceUrl]);
