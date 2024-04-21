@@ -1,18 +1,12 @@
 "use client";
-import {useState, useEffect, use} from 'react';
+import {useState, useEffect,
+} from 'react';
 
 
 export default function RaceDescription({raceUrl}) {
     
     const [raceDescription, setRaceDescription] = useState(null);
     
-
-    useEffect(() => {
-        fetchRaceDescription();
-    }, [raceUrl]);
-
-    
-
     const fetchRaceDescription = async () => {
         try {
             const response = await fetch(`https://www.dnd5eapi.co${raceUrl}`);
@@ -25,6 +19,14 @@ export default function RaceDescription({raceUrl}) {
             console.error('Error in fetching data. ', error);
         }
     }
+    
+    useEffect(() => {
+        fetchRaceDescription();
+    }, [raceUrl]);
+
+    
+
+    
 
     if (raceDescription === null) {
         return (
@@ -37,7 +39,7 @@ export default function RaceDescription({raceUrl}) {
         <div>
             <h2>{raceDescription.name}</h2>
             <p>{raceDescription.speed}</p>
-            <p>{raceDescription.alignment}</p>
+            <p>{raceDescription.alignment}</p> 
             <p>{raceDescription.age}</p>
             <p>{raceDescription.size}</p>
             <p>{raceDescription.size_description}</p>

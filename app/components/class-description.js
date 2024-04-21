@@ -5,12 +5,6 @@ import {useState, useEffect} from 'react';
 export default function ClassDescription({classUrl}) {
     const [classDescription, setClassDescription] = useState(null);
     const [classLevels, setClassLevels] = useState([]);
-
-    useEffect(() => {
-        fetchClassDescription();
-        fetchClassLevels();
-    }, [classUrl]);
-
     const fetchClassLevels = async () => {
         try {
             const response = await fetch(`https://www.dnd5eapi.co${classUrl}/levels`);
@@ -34,6 +28,12 @@ export default function ClassDescription({classUrl}) {
             console.error('Error in fetching data. ', error);
         }
     }
+    useEffect(() => {
+        fetchClassDescription();
+        fetchClassLevels();
+    }, [classUrl]);
+
+    
 
     if (classDescription === null) {
         return (
@@ -71,10 +71,6 @@ export default function ClassDescription({classUrl}) {
                 {classLevels.map((level, index) => (
                     <ul>
                     <li key={index}>Level {level.level}</li>
-                    <ul>
-                        <li key={index}>{classLevels.spellcasting.cantrips_known}</li>
-
-                </ul>
                     <li key={index}>{level.features.map((feature, index) => (
                         <ul>
                             <li key={index}>{feature.name}</li>
