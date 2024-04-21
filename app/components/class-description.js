@@ -45,42 +45,41 @@ export default function ClassDescription({classUrl}) {
 
     return (
         <div>
-            <h2>{classDescription.name}</h2>
-            <p>Hit die: {classDescription.hit_die}</p>
-            <p>Proficiencies: </p>
-            <ul>{classDescription.proficiency_choices.map((choices) => (
+    <h2>{classDescription.name}</h2>
+    <p>Hit die: {classDescription.hit_die}</p>
+    <p>Proficiencies:</p>
+    <ul>
+        {classDescription.proficiency_choices.map((choices, index) => (
+            <li key={index}>
+                {choices.desc}
                 <ul>
-                <li key={index}>{choices.desc}</li>
-                <li>{classDescription.proficiencies.map((proficiency) => 
-                <ul>
-                    <li>{proficiency.name}</li>
-                </ul>)}</li>
+                    {classDescription.proficiencies.map((proficiency, proficiencyIndex) => (
+                        <li key={proficiencyIndex}>{proficiency.name}</li>
+                    ))}
                 </ul>
-            ))}</ul>
-            <p>Starting Equipment: </p>
+            </li>
+        ))}
+    </ul>
+    <p>Starting Equipment:</p>
+    <ul>
+        {classDescription.starting_equipment.map((equipment, index) => (
+            <li key={index}>{equipment.equipment.name}</li>
+        ))}
+        {classDescription.starting_equipment_options.map((options, index) => (
+            <li key={index}>{options.desc}</li>
+        ))}
+    </ul>
+    <p>Features:</p>
+    {classLevels.map((level, index) => (
+        <ul key={index}>
+            <li>Level {level.level}</li>
             <ul>
-                {classDescription.starting_equipment.map((equipment) => (
-                    <li>{equipment.equipment.name}</li>
-                ))}
-                {classDescription.starting_equipment_options.map((options) => (
-                    <li>{options.desc}</li>
+                {level.features.map((feature, featureIndex) => (
+                    <li key={featureIndex}>{feature.name}</li>
                 ))}
             </ul>
-            <p>Features:
-            </p>
-            <ul>
-                {classLevels.map((level) => (
-                    <ul>
-                    <li>Level {level.level}</li>
-                    <li>{level.features.map((feature, index) => (
-                        <ul>
-                            <li key={index}>{feature.name}</li>
-                        </ul>
-                    ))}</li>
-                
-            </ul>))}
-            </ul>
-            
-        </div>      
+        </ul>
+    ))}
+</div>      
     )
 };
