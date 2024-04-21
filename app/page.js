@@ -2,10 +2,12 @@ import Header from './components/header';
 import Welcome from './components/welcome';
 import RulesList from './components/rules-list';
 import CharacterSheetExample from './components/character-sheet-example';
+import Navbar from './components/navbar';
 export default function Page() {
   return (
-    <div className='min-h-screen flex flex-col items-center'>
+    <div className='min-h-screen'>
       <Header/>
+      <Navbar />
       <div className='mt-7'>
       <Welcome />
       <p className= 'mt-2 ml-20 mr-20'>

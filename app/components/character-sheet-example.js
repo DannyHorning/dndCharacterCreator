@@ -238,8 +238,9 @@ export default function CharacterSheetExample() {
             ability scores, skills, equipment, and other important information. This character sheet is based on the character sheet provided in the Basic Rules for Dungeons and Dragons 5th Edition.
         `}
         </p>
-        <div className='flex flex-wrap justify-center'>
+        <div className='flex flex-wrap flex-row justify-center'>
         <div className= 'flex flex-col '>
+            
         <div className="bg-red-700 m-3 p-2 rounded-lg hover:cursor-pointer hover:bg-red-600" onClick={handleSheetExplaination('characterDetails')} value="characterDetails">
             <p className='font-bold'>Character Details</p>
             <p>Name: Grakthar Bonecrusher</p>
@@ -348,10 +349,11 @@ export default function CharacterSheetExample() {
             <p>Javelin: +4 to hit, 1d6 + 3 piercing damage</p>
         </div>
         </div>  
-        <div className='bg-red-700 m-3 p-2 rounded-lg text-center'>
+       
+    </div>
+    <div className='bg-red-700 m-3 p-2 rounded-lg text-center'>
         {displayExplaination(explaination)}
-    </div>
-    </div>
+    </div> 
     </div>
     )
 };

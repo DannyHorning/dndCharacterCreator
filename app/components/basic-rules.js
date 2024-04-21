@@ -6,7 +6,10 @@ import remarkGfm from 'remark-gfm';
 
 export default function BasicRules({ruleUrl}) {
     const [ruleData, setRuleData] = useState('Ability Checks');
-
+    console.log(ruleUrl);
+    console.log(typeof ruleUrl);
+    console.log(ruleData);
+    
     useEffect(() => {
         fetchDndBasicRules();
     }, [ruleUrl]);
