@@ -5,30 +5,31 @@ import {useState, useEffect} from 'react';
 export default function ClassDescription({classUrl}) {
     const [classDescription, setClassDescription] = useState(null);
     const [classLevels, setClassLevels] = useState([]);
-    const fetchClassLevels = async () => {
-        try {
-            const response = await fetch(`https://www.dnd5eapi.co${classUrl}/levels`);
-            const data = await response.json();
-            setClassLevels(data);
-            console.log(data);
-        }
-        catch (error) {
-            console.error('Error in fetching data. ', error);
-        }
-    }
-
-    const fetchClassDescription = async () => {
-        try {
-            const response = await fetch(`https://www.dnd5eapi.co${classUrl}`);
-            const data = await response.json();
-            setClassDescription(data);
-            console.log(data);
-        }
-        catch (error) {
-            console.error('Error in fetching data. ', error);
-        }
-    }
+    
     useEffect(() => {
+        const fetchClassLevels = async () => {
+            try {
+                const response = await fetch(`https://www.dnd5eapi.co${classUrl}/levels`);
+                const data = await response.json();
+                setClassLevels(data);
+                console.log(data);
+            }
+            catch (error) {
+                console.error('Error in fetching data. ', error);
+            }
+        }
+    
+        const fetchClassDescription = async () => {
+            try {
+                const response = await fetch(`https://www.dnd5eapi.co${classUrl}`);
+                const data = await response.json();
+                setClassDescription(data);
+                console.log(data);
+            }
+            catch (error) {
+                console.error('Error in fetching data. ', error);
+            }
+        }
         fetchClassDescription();
         fetchClassLevels();
     }, [classUrl]);
