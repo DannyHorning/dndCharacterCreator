@@ -30,44 +30,48 @@ export default function RaceDescription({raceUrl}) {
     if (raceDescription === null) {
         return (
         <div>
-            <p>Choose a race to get started</p>;
+            <p>Choose a race to get started</p>
         </div>)
     }
 
     return (
-        <div>
-            <h2>{raceDescription.name}</h2>
-            <p>{raceDescription.speed}</p>
+        <div className='flex flex-row justify-center'>
+            <div className=' bg-red-700 rounded-lg p-2 flex justify-center flex-col items-center w-1/2 m-2'>
+            <h2 className='font-bold'>{raceDescription.name}</h2>
+            <p>Speed: {raceDescription.speed} ft</p>
             <p>{raceDescription.alignment}</p> 
             <p>{raceDescription.age}</p>
-            <p>{raceDescription.size}</p>
+            <p className='font-bold'>{raceDescription.size}</p>
             <p>{raceDescription.size_description}</p>
-            <p>Languages: </p>
+            <p className='font-bold'>Languages: </p>
             <ul>
                 {raceDescription.languages.map((language, index) => (
                     <li key={index}>{language.name}</li>
                 ))}
             </ul>
             <p>{raceDescription.language_desc}</p>
-            <h3>Ability Bonuses</h3>
+            </div>
+            <div className='bg-red-700 rounded-lg p-2 flex flex-col items-center m-2'>
+            <h3 className='font-bold'>Ability Bonuses</h3>
             <ul>
                 {raceDescription.ability_bonuses.map((ability, index) => (
                     <li key={index}>{ability.ability_score.name} +{ability.bonus}</li>
                 ))}
             </ul> 
-            <h3>Starting Proficiencies</h3>
+            <h3 className='font-bold'>Starting Proficiencies</h3>
             <ul>
                 {raceDescription.starting_proficiencies.map((proficiency, index) => (
                     <li key={index}>{proficiency.name}</li>
                 ))}
             </ul>
             
-            <h3>Traits</h3>
+            <h3 className='font-bold'>Traits</h3>
             <ul>
                 {raceDescription.traits.map((trait, index) => (
                     <li key={index}>{trait.name}</li>
                 ))}
             </ul>
+            </div>
             
 
 

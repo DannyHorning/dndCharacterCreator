@@ -29,7 +29,7 @@ export default function Race() {
     };
     
     return (
-        <div>
+        <div className='flex justify-center items-center flex-col'>
             <h2 className='font-bold'>Pick a Race</h2>
             <select onChange={handleRaceChange}>
                     <option value="">Select a rule</option>
@@ -39,7 +39,7 @@ export default function Race() {
                         </option>
                     ))}
                 </select>
-                {selectedRace}
+                
             <RaceDescription raceUrl={selectedRace} />
 
         </div>

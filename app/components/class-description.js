@@ -44,10 +44,12 @@ export default function ClassDescription({classUrl}) {
     }   
 
     return (
-        <div>
-    <h2>{classDescription.name}</h2>
+        <div className='flex flex-row justify-center'>
+            <div className=' bg-red-700 rounded-lg p-2 flex  flex-col items-center w-1/2 m-2 text-center'>
+    <h2 className='font-bold'>{classDescription.name}</h2>
     <p>Hit die: {classDescription.hit_die}</p>
-    <p>Proficiencies:</p>
+    <p className='font-bold'>Proficiencies:</p>
+    
     <ul>
         {classDescription.proficiency_choices.map((choices, index) => (
             <li key={index}>
@@ -60,7 +62,7 @@ export default function ClassDescription({classUrl}) {
             </li>
         ))}
     </ul>
-    <p>Starting Equipment:</p>
+    <p className='font-bold'>Starting Equipment:</p>
     <ul>
         {classDescription.starting_equipment.map((equipment, index) => (
             <li key={index}>{equipment.equipment.name}</li>
@@ -69,10 +71,12 @@ export default function ClassDescription({classUrl}) {
             <li key={index}>{options.desc}</li>
         ))}
     </ul>
-    <p>Features:</p>
+    </div>
+    <div  className='bg-red-700 rounded-lg p-2 flex flex-col items-center m-2 text-center'>
+    <p className='font-bold'>Features:</p>
     {classLevels.map((level, index) => (
         <ul key={index}>
-            <li>Level {level.level}</li>
+            <li className='font-bold'>Level {level.level}</li>
             <ul>
                 {level.features.map((feature, featureIndex) => (
                     <li key={featureIndex}>{feature.name}</li>
@@ -80,6 +84,7 @@ export default function ClassDescription({classUrl}) {
             </ul>
         </ul>
     ))}
+    </div>
 </div>      
     )
 };

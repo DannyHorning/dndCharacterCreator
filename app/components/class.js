@@ -33,7 +33,7 @@ console.log(selectedClass);
 console.log(characterClass);
 
 return (
-    <div>
+    <div className='flex justify-center items-center flex-col'>
         <h2 className='font-bold'>Pick a Class</h2>
         <select onChange={handleClassChange}>
                 <option value="">Select a rule</option>
@@ -43,7 +43,7 @@ return (
                     </option>
                 ))}
             </select>
-            {selectedClass}
+            
         <ClassDescription classUrl={selectedClass} />
 
     </div>
